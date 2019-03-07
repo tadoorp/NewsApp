@@ -1,0 +1,115 @@
+<h2>Register Here</h2>
+<mat-card>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div>
+      <mat-form-field>
+        <input matInput type="text" id="userName" name="name" placeholder="User Name" formControlName="userName" required/>
+      </mat-form-field>
+      
+    </div>
+
+    <div>
+      <mat-form-field>
+        <input matInput type="text" id="email" name="email" placeholder="Email" formControlName="email" required/>
+      </mat-form-field>
+      <div>
+        <span *ngIf="email.invalid && email.touched">
+          Enter a valid email
+        </span>
+      </div>
+    </div>
+
+    <div>
+        <mat-form-field>
+          <input matInput type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" formControlName="phoneNumber" required/>
+        </mat-form-field>
+    </div>
+    
+    <div>
+        <mat-form-field>
+          <input matInput type="password" id="password" name="password" placeholder="Password" formControlName="password" required/>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field>
+          <input matInput type="password" id="confirmPassword" name="confirmPassword" placeholder="confirmPassword" formControlName="confirmPassword" required/>
+        </mat-form-field>
+    </div>
+    <div>
+        
+        <mat-radio-group>Gender :
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+            <mat-radio-button value="Others">Others</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div>
+      <button mat-button type="submit">Register</button>
+      <button mat-button type="reset">Cancel</button><br>
+    </div>
+    Already a member please <a routerLink="/login">Login</a>
+  </form>
+</mat-card>
+<router-outlet></router-outlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div>
+  <form #register="ngForm">
+    <mat-form-field>
+      <input matInput type="text" id="userName" name="name" placeholder="User Name" [(ngModel)]="name" #uname='ngModel'/>
+    </mat-form-field>
+    <div>
+      <span *ngIf="uname.touched && uname.invalid">Name is</span>
+    </div>
+
+    <mat-form-field>
+      <input matInput type="text" id="email" name="email" placeholder="Email" [(ngModel)]='email' #mail='ngModel'/>
+    </mat-form-field>
+    <div>
+      <span *ngIf="mail.touched && mail.invalid">Email is</span>
+    </div>
+
+    <mat-form-field>
+        <input matInput type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" [(ngModel)]="phoneNumber" #pnum="ngModel"/>
+    </mat-form-field>
+    <div>
+      <span *ngIf="pnum.touched && pnum.invalid"></span>
+      <span *ngIf="pnum.value && pnum.value.length==10"></span>
+      </div>
+
+    <div>
+      <mat-form-field>
+        <input matInput type="password" id="password" name="password" placeholder="Password" [(ngModel)]="password" #pwd="ngModel" />
+      </mat-form-field>
+      <div>
+        <span *ngIf="pwd.touched && pwd.invalid">Password is</span>
+        <span *ngIf="pwd.value && pwd.value.length<6">Password should be atleast 6 characters</span>
+      </div>
+    </div>
+
+    
+    
+    
+
+    <button type="radio">Gender</button>
+    <div>
+      <button title="register">Register</button>
+    </div>
+    <div>
+      <button title="cancel">Cancel</button>
+    </div>
+    
+  </form>
+</div> -->

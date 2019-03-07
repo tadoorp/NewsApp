@@ -1,0 +1,37 @@
+  <h2>Login Here</h2>
+  <mat-card>
+    <div>
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input matInput type="text" id="email" name="email" placeholder="Email Id" [(ngModel)]="user.email" #mail='ngModel'  required/>
+        </mat-form-field>
+        <div>
+          <span *ngIf="mail.touched && mail.invalid">Email is required</span>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <input matInput type="password" id="password" name="password" placeholder="Password" [(ngModel)]="user.password" #pwd='ngModel' required/>
+          </mat-form-field>
+          <div>
+              <span *ngIf="pwd.touched && pwd.invalid">Password is required</span>
+              <span *ngIf="pwd.value && pwd.value.length<6">Password Should be atleast 6 characters</span>
+          </div>
+        </div>
+
+          <button mat-button type="submit" [disabled]="!loginForm.valid">Login</button>
+          <button mat-button type="reset"[disabled]="">Cancel</button><br>
+          New User? please <a routerLink="/register">Register</a>
+      </form>
+    </div>
+  </mat-card>
+  <router-outlet></router-outlet>
+<!-- <form>
+  <mat-form-field>
+    <input matInput placeholder="Favorite food" value="Sushi">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <textarea matInput placeholder="Leave a comment"></textarea>
+  </mat-form-field>
+</form> -->
